@@ -155,6 +155,56 @@ module.exports = {
           cartId: 3,
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          name: 'Zucchini',
+          price: '$0.75',
+          image: 'https://i.imgur.com/vW69dSV.jpg',
+          upc: '0000000004067',
+          recipeId: 3,
+          cartId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Squash Yellow',
+          price: '$0.85',
+          image: 'https://i.imgur.com/3KvWtAY.jpg',
+          upc: '0000000004784',
+          recipeId: 3,
+          cartId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Tri-Color Bell Peppers',
+          price: '$3.99',
+          image: 'https://i.imgur.com/G7G02PU.jpg',
+          upc: '0001111091116',
+          recipeId: 3,
+          cartId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Simple Truth Organic™ Thyme 0.5 oz',
+          price: '$2.39',
+          image: 'https://i.imgur.com/Hj9Nobt.png',
+          upc: '0001111001921',
+          recipeId: 3,
+          cartId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'BelGioioso® Mascarpone Cheese',
+          price: '$5.49',
+          image: 'https://i.imgur.com/UXxz7qu.jpg',
+          upc: '0003114200011',
+          recipeId: 3,
+          cartId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}
