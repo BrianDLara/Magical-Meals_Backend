@@ -59,6 +59,23 @@ module.exports = {
           yield: '4 servings',
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          name: 'Monster Yellow Snow Cones',
+          description:
+            'If you are a fan of Pixar, you will recognize that the cones are served in the movie Monsters Inc. The enjoyable shade of the dish causes a hilarious situation in which the Yeti has to explain "No, no, no, do not worry. Its lemon." The process of making these snow cones is pretty simple and straightforward. For those who have kids, this dish is highly recommended.',
+          directions: [
+            '1. Simmer lemon juice, sugar, corn syrup and water over medium heat and whisk until well combined.',
+            '2. Remove from heat and add yellow food coloring until the syrup is a lemon color. Allow the syrup to cool completely.',
+            '3. Use a snow cone machine to make shaved ice. Pour the lemon syrup into a large bowl of shaved ice and mix well with a rubber spatula.',
+            '4. Scoop the lemon shaved ice into snow cone cups and then drizzle a little more syrup over the top.'
+          ],
+          image: 'https://i.imgur.com/KnDILf5.jpg',
+          prep: '15 mins',
+          cook: '20 mins',
+          yield: '6 servings',
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

@@ -205,6 +205,46 @@ module.exports = {
           cartId: 3,
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          name: 'Kroger® Lemons',
+          price: '$3.99',
+          image: 'https://i.imgur.com/KEqPSGS.jpg',
+          upc: '0001111091188',
+          recipeId: 4,
+          cartId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Dixie Crystals Granulated Extra Fine Sugar',
+          price: '$3.99',
+          image: 'https://i.imgur.com/ooG7lns.png',
+          upc: '0001620033700',
+          recipeId: 4,
+          cartId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Karo Light Corn Syrup with Real Vanilla',
+          price: '$4.69',
+          image: 'https://i.imgur.com/y4WQ08T.jpg',
+          upc: '0076172005110',
+          recipeId: 4,
+          cartId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: 'Kroger® Yellow Food Coloring',
+          price: '$2.59',
+          image: 'https://i.imgur.com/T9X4WPF.jpg',
+          upc: '0001111002070',
+          recipeId: 4,
+          cartId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}
