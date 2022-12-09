@@ -1,8 +1,10 @@
-const { Recipe } = require('../models')
+const { Recipe, Item } = require('../models')
 
 const GetRecipes = async (req, res) => {
   try {
-    const recipes = await Recipe.findAll()
+    const recipes = await Recipe.findAll({
+      include: [{ model: Item, as: 'recipe_items' }]
+    })
     res.send(recipes)
   } catch (error) {
     throw error
@@ -11,7 +13,9 @@ const GetRecipes = async (req, res) => {
 
 const GetRecipeById = async (req, res) => {
   try {
-    const recipe = await Recipe.findByPk(req.params.id)
+    const recipe = await Recipe.findByPk(req.params.id, {
+      include: [{ model: Item, as: 'recipe_items' }]
+    })
     res.send(recipe)
   } catch (error) {
     throw error

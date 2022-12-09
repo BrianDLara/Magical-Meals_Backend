@@ -1,6 +1,4 @@
-const { Item } = require('../models')
-const { Cart } = require('../models')
-const { Recipe } = require('../models')
+const { Recipe, Item, Cart } = require('../models')
 
 const CreateItem = async (req, res) => {
   try {
@@ -32,7 +30,8 @@ const UpdateItem = async (req, res) => {
 const GetCartsItems = async (req, res) => {
   try {
     const carts = await Cart.findAll({
-      include: [{ model: Recipe, as: 'shopping_list' }]
+      include: [{ model: Recipe, as: 'shopping_list' }],
+      raw: true
     })
     res.send(carts)
   } catch (error) {
@@ -40,20 +39,23 @@ const GetCartsItems = async (req, res) => {
   }
 }
 
-// const GetRecipesWithUserList = async (req, res) => {
-//   try {
-//     const recipes = await Recipe.findAll({
-//       include: [{ model: User, as: 'user_list' }]
-//     })
-//     res.send(recipes)
-//   } catch (error) {
-//     return res.status(500).send(error.message)
-//   }
-// }
+const GetRecipeWithAllCarts = async (req, res) => {
+  try {
+    const recipes = await Recipe.findAll({
+      include: [
+        { model: Cart, as: 'recipe_cart', through: { attributes: [] } }
+      ],
+      raw: true
+    })
+    res.send(recipes)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 
 module.exports = {
   CreateItem,
   UpdateItem,
-  GetCartsItems
-  //   GetRecipesWithUserList
+  GetCartsItems,
+  GetRecipeWithAllCarts
 }

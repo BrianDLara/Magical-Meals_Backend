@@ -9,9 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // User - Cart association
-      User.hasOne(models.Cart, { foreignKey: 'userId' })
+      User.hasOne(models.Cart, {
+        as: 'user_cart',
+        foreignKey: 'userId'
+      })
 
-      // User - Recipe association
+      // User - Recipe association through Favorites
       User.belongsToMany(models.Recipe, {
         as: 'user_favorites',
         through: models.Favorite,

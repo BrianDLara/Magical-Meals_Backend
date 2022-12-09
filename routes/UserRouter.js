@@ -4,6 +4,12 @@ const controller = require('../controllers/UserController')
 // Get all users
 router.get('/get_all', controller.GetUsers)
 
+// Get users with cart
+router.get('/get_all_cart', controller.GetUsersCart)
+
+// Get users with cart by id
+router.get('/get_all_cart/id/:id', controller.GetUsersCartById)
+
 // get user by id
 router.get('/id/:id', controller.GetUserById)
 

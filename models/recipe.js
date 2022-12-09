@@ -9,16 +9,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // Recipe - Cart association
-      Recipe.belongsToMany(models.Cart, {
-        as: 'recipe_ingredients',
-        through: models.Item,
-        foreignKey: 'recipeId'
-      })
+      // Recipe.belongsToMany(models.Cart, {
+      //   as: 'recipe_cart',
+      //   through: models.Item,
+      //   foreignKey: 'recipeId'
+      // })
 
-      // Recipe - User association
+      // // Recipe - User association through favorites
       Recipe.belongsToMany(models.User, {
         as: 'user_list',
         through: models.Favorite,
+        foreignKey: 'recipeId'
+      })
+
+      // recipe - item association
+      Recipe.hasMany(models.Item, {
+        as: 'recipe_items',
         foreignKey: 'recipeId'
       })
     }

@@ -1,6 +1,4 @@
-const { Favorite } = require('../models')
-const { User } = require('../models')
-const { Recipe } = require('../models')
+const { Recipe, Favorite, User } = require('../models')
 
 const CreateFavorite = async (req, res) => {
   try {

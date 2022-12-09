@@ -1,4 +1,4 @@
-const { User, Favorite } = require('../models')
+const { User, Item, Cart } = require('../models')
 
 const GetUsers = async (req, res) => {
   try {
@@ -9,34 +9,44 @@ const GetUsers = async (req, res) => {
   }
 }
 
-// const GetUsers = async (req, res) => {
-//   try {
-//     const users = await User.findAll({
-//       include: [
-//         {
-//           model: Favorite,
-//           as: 'user_favorites'
-//         }
-//       ]
-//     })
-//     res.send(users)
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
 const GetUserById = async (req, res) => {
   try {
-    const user = await User.findByPk(req.params.id, {
-      // include: [
-      //   {
-      //     model: Zodiac,
-      //     as: 'user_sign',
-      //     attributes: ['name', 'image', 'description']
-      //   }
-      // ]
-    })
+    const user = await User.findByPk(req.params.id)
     res.send(user)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetUsersCart = async (req, res) => {
+  try {
+    const users = await User.findAll({
+      include: [
+        {
+          model: Cart,
+          as: 'user_cart',
+          include: [{ model: Item, as: 'cart_items' }]
+        }
+      ]
+    })
+    res.send(users)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetUsersCartById = async (req, res) => {
+  try {
+    const users = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Cart,
+          as: 'user_cart',
+          include: [{ model: Item, as: 'cart_items' }]
+        }
+      ]
+    })
+    res.send(users)
   } catch (error) {
     throw error
   }
@@ -148,6 +158,8 @@ const UpdatePassword = async (req, res) => {
 module.exports = {
   GetUsers,
   GetUserById,
+  GetUsersCart,
+  GetUsersCartById,
   RegisterUser,
   LoginUser,
   CreateUser,
