@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ingredients', {
+    await queryInterface.createTable('items', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,6 +15,20 @@ module.exports = {
       price: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.STRING
+      },
+      upc: {
+        type: Sequelize.STRING
+      },
+      cartId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'carts',
+          key: 'id'
+        }
+      },
       recipeId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
@@ -22,9 +36,6 @@ module.exports = {
           model: 'recipes',
           key: 'id'
         }
-      },
-      krogerId: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +48,6 @@ module.exports = {
     })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ingredients')
+    await queryInterface.dropTable('items')
   }
 }

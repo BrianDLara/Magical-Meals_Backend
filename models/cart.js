@@ -14,14 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       // Cart - Recipe association
       Cart.belongsToMany(models.Recipe, {
         as: 'shopping_list',
-        through: models.Ingredient,
+        through: models.Item,
         foreignKey: 'cartId'
       })
     }
   }
   Cart.init(
     {
-      // ingredientId: DataTypes.INTEGER,
       userId: {
         type: DataTypes.INTEGER,
         onDelete: 'CASCADE',

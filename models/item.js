@@ -1,18 +1,22 @@
 'use strict'
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class Ingredient extends Model {
+  class Item extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {}
+    static associate(models) {
+      // define association here
+    }
   }
-  Ingredient.init(
+  Item.init(
     {
       name: DataTypes.STRING,
       price: DataTypes.STRING,
+      image: DataTypes.STRING,
+      upc: DataTypes.STRING,
       cartId: {
         type: DataTypes.INTEGER,
         onDelete: 'CASCADE',
@@ -28,14 +32,13 @@ module.exports = (sequelize, DataTypes) => {
           model: 'recipes',
           key: 'id'
         }
-      },
-      krogerId: DataTypes.INTEGER
+      }
     },
     {
       sequelize,
-      modelName: 'Ingredient',
-      tableName: 'ingredients'
+      modelName: 'Item',
+      tableName: 'items'
     }
   )
-  return Ingredient
+  return Item
 }

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // Recipe - Cart association
       Recipe.belongsToMany(models.Cart, {
         as: 'recipe_ingredients',
-        through: models.Ingredient,
+        through: models.Item,
         foreignKey: 'recipeId'
       })
 
