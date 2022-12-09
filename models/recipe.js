@@ -8,31 +8,30 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Recipe.belongsToMany(models.Carts, {
+      // Recipe - Cart association
+      Recipe.belongsToMany(models.Cart, {
         as: 'recipe_ingredients',
+        through: models.Ingredient,
+        foreignKey: 'recipeId'
+      })
+
+      // Recipe - User association
+      Recipe.belongsToMany(models.User, {
+        as: 'user_list',
         through: models.Favorite,
         foreignKey: 'recipeId'
       })
-      Recipe.belongsTo(models.Favorite, { foreignKey: 'favoriteId' })
     }
   }
   Recipe.init(
     {
       name: DataTypes.STRING,
-      description: DataTypes.STRING,
-      directions: DataTypes.STRING,
+      description: DataTypes.TEXT,
+      directions: DataTypes.ARRAY(DataTypes.TEXT),
       image: DataTypes.STRING,
-      prep: DataTypes.INTEGER,
-      cook: DataTypes.INTEGER,
-      yield: DataTypes.INTEGER,
-      favoriteId: {
-        type: DataTypes.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'favorites',
-          key: 'id'
-        }
-      }
+      prep: DataTypes.STRING,
+      cook: DataTypes.STRING,
+      yield: DataTypes.STRING
     },
     {
       sequelize,

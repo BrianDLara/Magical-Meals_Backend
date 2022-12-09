@@ -1,35 +1,40 @@
-const { User, Zodiac } = require('../models')
+const { User, Favorite } = require('../models')
 
 const GetUsers = async (req, res) => {
   try {
-    // const users = await User.findAll()
-
-    const users = await User.findAll({
-      include: [
-        {
-          model: Zodiac,
-          as: 'user_sign',
-          attributes: ['name', 'image', 'description']
-        }
-      ]
-    })
-
+    const users = await User.findAll()
     res.send(users)
   } catch (error) {
     throw error
   }
 }
 
+// const GetUsers = async (req, res) => {
+//   try {
+//     const users = await User.findAll({
+//       include: [
+//         {
+//           model: Favorite,
+//           as: 'user_favorites'
+//         }
+//       ]
+//     })
+//     res.send(users)
+//   } catch (error) {
+//     throw error
+//   }
+// }
+
 const GetUserById = async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Zodiac,
-          as: 'user_sign',
-          attributes: ['name', 'image', 'description']
-        }
-      ]
+      // include: [
+      //   {
+      //     model: Zodiac,
+      //     as: 'user_sign',
+      //     attributes: ['name', 'image', 'description']
+      //   }
+      // ]
     })
     res.send(user)
   } catch (error) {
@@ -92,17 +97,17 @@ const UpdateUser = async (req, res) => {
 }
 
 const CreateUser = async (req, res) => {
-  //   try {
-  //     let zodiacId = parseInt(req.params.zodiac_id)
-  //     let userBody = {
-  //       zodiacId,
-  //       ...req.body
-  //     }
-  //     const createdUser = await User.create(userBody)
-  //     res.send(createdUser)
-  //   } catch (error) {
-  //     throw error
-  //   }
+  try {
+    // let zodiacId = parseInt(req.params.zodiac_id)
+    // let userBody = {
+    //   zodiacId,
+    //   ...req.body
+    // }
+    const createdUser = await User.create(req.body)
+    res.send(createdUser)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 
 const DeleteUser = async (req, res) => {

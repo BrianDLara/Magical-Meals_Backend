@@ -13,30 +13,22 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       directions: {
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(Sequelize.TEXT)
       },
       image: {
         type: Sequelize.STRING
       },
       prep: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       cook: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       yield: {
-        type: Sequelize.INTEGER
-      },
-      userId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
