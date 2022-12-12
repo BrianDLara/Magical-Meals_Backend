@@ -27,14 +27,6 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       }
-      // recipeId: {
-      //   type: DataTypes.INTEGER,
-      //   onDelete: 'CASCADE',
-      //   references: {
-      //     model: 'recipes',
-      //     key: 'id'
-      //   }
-      // }
     },
     {
       sequelize,

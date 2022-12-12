@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Cart } = require('../models')
 const middleware = require('../middleware')
 
 const Login = async (req, res) => {
@@ -34,7 +34,9 @@ const Register = async (req, res) => {
       passwordDigest,
       name
     })
+    // const createCart = await Cart.create(req.body)
     res.send(user)
+    // res.send(createCart)
   } catch (error) {
     throw error
   }

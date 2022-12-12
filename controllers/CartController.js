@@ -43,8 +43,44 @@ const AddCartItem = async (req, res) => {
   }
 }
 
+const CreateCart = async (req, res) => {
+  try {
+    const userId = parseInt(req.params.user_id)
+    let itemBody = {
+      userId
+    }
+    const createdCart = await Cart.create(itemBody)
+    res.send(createdCart)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const DeleteItem = async (req, res) => {
+  try {
+    const itemId = parseInt(req.params.item_id)
+    await Item.destroy({ where: { id: itemId } })
+    res.send({ message: `Deleted item with and id of ${itemId}` })
+  } catch (error) {
+    throw error
+  }
+}
+
+const DeleteCart = async (req, res) => {
+  try {
+    const cartId = parseInt(req.params.cart_id)
+    await Cart.destroy({ where: { id: cartId } })
+    res.send({ message: `Deleted cart with and id of ${cartId}` })
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   GetCartsItems,
   GetCartsItemsById,
-  AddCartItem
+  AddCartItem,
+  CreateCart,
+  DeleteItem,
+  DeleteCart
 }
