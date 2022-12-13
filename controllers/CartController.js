@@ -26,7 +26,6 @@ const AddCartItem = async (req, res) => {
   try {
     const cart_items = await Item.findByPk(req.params.item_id)
     const cartId = parseInt(req.params.cart_id)
-    const recipeId = parseInt(req.params.recipe_id)
 
     let itemBody = {
       name: cart_items.name,
@@ -34,8 +33,8 @@ const AddCartItem = async (req, res) => {
       image: cart_items.image,
       upc: cart_items.upc,
       amount: cart_items.amount,
-      cartId,
-      recipeId
+      recipeId: null,
+      cartId
     }
     const addItemToCart = await Item.create(itemBody)
     res.send(addItemToCart)
