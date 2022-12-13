@@ -33,6 +33,7 @@ const AddCartItem = async (req, res) => {
       price: cart_items.price,
       image: cart_items.image,
       upc: cart_items.upc,
+      amount: cart_items.amount,
       cartId,
       recipeId
     }

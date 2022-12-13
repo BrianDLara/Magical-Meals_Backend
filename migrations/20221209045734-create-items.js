@@ -21,6 +21,9 @@ module.exports = {
       upc: {
         type: Sequelize.STRING
       },
+      amount: {
+        type: Sequelize.INTEGER
+      },
       cartId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',

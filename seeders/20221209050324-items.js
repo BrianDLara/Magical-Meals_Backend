@@ -11,6 +11,7 @@ module.exports = {
           price: '5.29',
           image: 'https://i.imgur.com/vwAVddF.jpg',
           upc: '0001111087813',
+          amount: 1,
           recipeId: 1,
           cartId: 1,
           createdAt: new Date(),
@@ -23,6 +24,7 @@ module.exports = {
           upc: '0001620033700',
           recipeId: 1,
           cartId: 1,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -33,6 +35,7 @@ module.exports = {
           upc: '0000000004053',
           recipeId: 1,
           cartId: 1,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -43,6 +46,7 @@ module.exports = {
           upc: '0000000004053',
           recipeId: 1,
           cartId: 1,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -53,6 +57,7 @@ module.exports = {
           upc: '0004300020433',
           recipeId: 2,
           cartId: 2,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -63,6 +68,7 @@ module.exports = {
           upc: '0004400003202',
           recipeId: 2,
           cartId: 2,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -73,6 +79,7 @@ module.exports = {
           upc: '0004300000953',
           recipeId: 2,
           cartId: 2,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -83,6 +90,7 @@ module.exports = {
           upc: '0004300020431',
           recipeId: 2,
           cartId: 2,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -93,6 +101,7 @@ module.exports = {
           upc: '0007089610627',
           recipeId: 2,
           cartId: 2,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -103,6 +112,7 @@ module.exports = {
           upc: '0001111081018',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -113,6 +123,7 @@ module.exports = {
           upc: '0000000004166',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -123,6 +134,7 @@ module.exports = {
           upc: '0000000004166',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -133,6 +145,7 @@ module.exports = {
           upc: '0000000004166',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -143,6 +156,7 @@ module.exports = {
           upc: '0004179000160',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -153,6 +167,7 @@ module.exports = {
           upc: '0000000004081',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -163,6 +178,7 @@ module.exports = {
           upc: '0000000004067',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -173,6 +189,7 @@ module.exports = {
           upc: '0000000004784',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -183,6 +200,7 @@ module.exports = {
           upc: '0001111091116',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -193,6 +211,7 @@ module.exports = {
           upc: '0001111001921',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -203,6 +222,7 @@ module.exports = {
           upc: '0003114200011',
           recipeId: 3,
           cartId: 3,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -213,6 +233,7 @@ module.exports = {
           upc: '0001111091188',
           recipeId: 4,
           cartId: 4,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -223,6 +244,7 @@ module.exports = {
           upc: '0001620033700',
           recipeId: 4,
           cartId: 4,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -233,6 +255,7 @@ module.exports = {
           upc: '0076172005110',
           recipeId: 4,
           cartId: 4,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -243,6 +266,7 @@ module.exports = {
           upc: '0001111002070',
           recipeId: 4,
           cartId: 4,
+          amount: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         }
