@@ -9,7 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      comment: Sequelize.STRING,
+      comment: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
