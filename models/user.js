@@ -20,6 +20,13 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Favorite,
         foreignKey: 'userId'
       })
+
+      // User - Recipe association through Comment
+      User.belongsToMany(models.Recipe, {
+        as: 'user_comments',
+        through: models.Comment,
+        foreignKey: 'userId'
+      })
     }
   }
 
