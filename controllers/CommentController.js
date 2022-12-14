@@ -1,6 +1,6 @@
-const { Recipe, Favorite, User } = require('../models')
+const { Recipe, Comment, User } = require('../models')
 
-const CreateFavorite = async (req, res) => {
+const CreateComment = async (req, res) => {
   try {
     const userId = parseInt(req.params.user_id)
     const recipeId = parseInt(req.params.recipe_id)
@@ -9,16 +9,16 @@ const CreateFavorite = async (req, res) => {
       userId,
       recipeId
     }
-    const addToFavorite = await Favorite.create(itemBody)
-    res.send(addToFavorite)
+    const addToComment = await Comment.create(itemBody)
+    res.send(addToComment)
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const UpdateFavorite = async (req, res) => {
+const UpdateComment = async (req, res) => {
   try {
-    const updateFavorite = await Favorite.update(
+    const updateComment = await Comment.update(
       { ...req.body },
       {
         where: {
@@ -28,36 +28,36 @@ const UpdateFavorite = async (req, res) => {
         returning: true
       }
     )
-    res.send(updateFavorite)
+    res.send(updateComment)
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const DeleteFavorite = async (req, res) => {
+const DeleteComment = async (req, res) => {
   try {
     let recipeId = parseInt(req.params.recipe_id)
     let userId = parseInt(req.params.user_id)
-    await Favorite.destroy({ where: { recipeId: recipeId, userId: userId } })
-    res.send({ message: `Deleted favorite recipe with and id of ${recipeId}` })
+    await Comment.destroy({ where: { recipeId: recipeId, userId: userId } })
+    res.send({ message: `Deleted Comment recipe with and id of ${recipeId}` })
   } catch (error) {
     throw error
   }
 }
 
-const GetallFavorites = async (req, res) => {
+const GetallComments = async (req, res) => {
   try {
-    const favorites = await Favorite.findAll()
-    res.send(favorites)
+    const Comments = await Comment.findAll()
+    res.send(Comments)
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const GetUsersFavorites = async (req, res) => {
+const GetUsersComments = async (req, res) => {
   try {
     const users = await User.findAll({
-      include: [{ model: Recipe, as: 'user_favorites' }]
+      include: [{ model: Recipe, as: 'user_Comments' }]
     })
     res.send(users)
   } catch (error) {
@@ -65,10 +65,10 @@ const GetUsersFavorites = async (req, res) => {
   }
 }
 
-const GetUsersFavoritesById = async (req, res) => {
+const GetUsersCommentsById = async (req, res) => {
   try {
     const users = await User.findByPk(req.params.id, {
-      include: [{ model: Recipe, as: 'user_favorites' }]
+      include: [{ model: Recipe, as: 'user_Comments' }]
     })
     res.send(users)
   } catch (error) {
@@ -76,7 +76,7 @@ const GetUsersFavoritesById = async (req, res) => {
   }
 }
 
-const GetRecipesWithUserList = async (req, res) => {
+const GetRecipesWithUserComments = async (req, res) => {
   try {
     const recipes = await Recipe.findAll({
       include: [{ model: User, as: 'user_list' }]
@@ -88,11 +88,11 @@ const GetRecipesWithUserList = async (req, res) => {
 }
 
 module.exports = {
-  CreateFavorite,
-  UpdateFavorite,
-  GetallFavorites,
-  GetUsersFavorites,
-  GetUsersFavoritesById,
-  GetRecipesWithUserList,
-  DeleteFavorite
+  CreateComment,
+  UpdateComment,
+  GetallComments,
+  GetUsersComments,
+  GetUsersCommentsById,
+  GetRecipesWithUserComments,
+  DeleteComment
 }
