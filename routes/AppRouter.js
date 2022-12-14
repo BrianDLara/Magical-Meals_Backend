@@ -5,7 +5,6 @@ const FavoriteRouter = require('./FavoriteRouter')
 const ItemRouter = require('./ItemRouter')
 const CartRouter = require('./CartRouter')
 const AuthRouter = require('./AuthRouter')
-const AuthRouter = require('./AuthRouter')
 const CommentRouter = require('./CommentRouter')
 
 router.use('/users', UserRouter)
