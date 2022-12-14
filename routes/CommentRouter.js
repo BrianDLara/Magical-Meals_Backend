@@ -9,7 +9,10 @@ router.post(
   '/create/user_id/:user_id/recipe_id/:recipe_id',
   controller.CreateComment
 )
-router.put('/update/:userId/:recipeId', controller.UpdateComment)
+router.put(
+  '/update/user_id/:userId/recipe_id/:recipeId',
+  controller.UpdateComment
+)
 router.delete(
   '/user_id/:user_id/recipe_id/:recipe_id',
   controller.DeleteComment
