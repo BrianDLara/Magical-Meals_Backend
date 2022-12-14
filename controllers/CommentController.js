@@ -8,7 +8,7 @@ const CreateComment = async (req, res) => {
     let itemBody = {
       userId,
       recipeId,
-      comment: Comment.comment
+      ...req.body
     }
     const addToComment = await Comment.create(itemBody)
     res.send(addToComment)
