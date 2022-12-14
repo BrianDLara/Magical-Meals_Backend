@@ -57,7 +57,7 @@ const GetallComments = async (req, res) => {
 const GetUsersComments = async (req, res) => {
   try {
     const users = await User.findAll({
-      include: [{ model: Recipe, as: 'user_Comments' }]
+      include: [{ model: Recipe, as: 'user_comments' }]
     })
     res.send(users)
   } catch (error) {
