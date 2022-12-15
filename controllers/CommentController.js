@@ -57,8 +57,8 @@ const GetallComments = async (req, res) => {
 
 const GetCommentsByRecipeId = async (req, res) => {
   try {
-    const Comments = await Comment.findByPk(req.params.RecipeId)
-    res.send(Comments)
+    const comments = await Comment.findByPk(req.params.recipeId)
+    res.send(comments)
   } catch (error) {
     return res.status(500).send(error.message)
   }
