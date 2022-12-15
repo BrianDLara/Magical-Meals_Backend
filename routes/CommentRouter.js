@@ -10,6 +10,11 @@ router.get('/recipe_users', controller.GetRecipesWithUserComments)
 //   controller.GetRecipesWithUserCommentsById
 // )
 router.get('/recipe_users/:recipe_id', controller.GetCommentsByRecipeId)
+router.get(
+  '/comment/user_id/:user_id/recipe_id/:recipe_id',
+  controller.GetSingleComment
+)
+
 router.post(
   '/create/user_id/:user_id/recipe_id/:recipe_id',
   controller.CreateComment
