@@ -5,10 +5,11 @@ router.get('/get_all', controller.GetallComments)
 router.get('/users_comments', controller.GetUsersComments)
 router.get('/users_comments/id/:id', controller.GetUsersCommentsById)
 router.get('/recipe_users', controller.GetRecipesWithUserComments)
-router.get(
-  '/recipe_users/:recipe_id',
-  controller.GetRecipesWithUserCommentsById
-)
+// router.get(
+//   '/recipe_users/:recipe_id',
+//   controller.GetRecipesWithUserCommentsById
+// )
+router.get('/recipe_users/:recipe_id', controller.GetCommentsByRecipeId)
 router.post(
   '/create/user_id/:user_id/recipe_id/:recipe_id',
   controller.CreateComment
