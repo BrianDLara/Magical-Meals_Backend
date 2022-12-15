@@ -88,6 +88,17 @@ const GetRecipesWithUserComments = async (req, res) => {
   }
 }
 
+const GetRecipesWithUserCommentsById = async (req, res) => {
+  try {
+    const recipes = await Recipe.findByPk(req.params.recipe_id, {
+      include: [{ model: User, as: 'comments_list' }]
+    })
+    res.send(recipes)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   CreateComment,
   UpdateComment,
@@ -95,5 +106,6 @@ module.exports = {
   GetUsersComments,
   GetUsersCommentsById,
   GetRecipesWithUserComments,
+  GetRecipesWithUserCommentsById,
   DeleteComment
 }
