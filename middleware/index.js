@@ -98,7 +98,6 @@ module.exports = {
   createToken,
   verifyToken,
   stripToken,
-  callbackHandler,
   getByAuth,
   getByRefresh
 }
