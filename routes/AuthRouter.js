@@ -19,6 +19,6 @@ Router.get(
 )
 
 // kroger routes
-Router.post('/krogerLogin', controller.callbackHandler)
+Router.get('/', controller.callbackHandler)
 
 module.exports = Router
