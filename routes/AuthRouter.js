@@ -19,6 +19,6 @@ Router.get(
 )
 
 // kroger routes
-Router.get('/', controller.callbackHandler)
+Router.get('/callback', controller.callbackHandler)
 
 module.exports = Router
