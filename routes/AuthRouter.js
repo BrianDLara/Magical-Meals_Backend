@@ -18,4 +18,7 @@ Router.get(
   controller.CheckSession
 )
 
+// kroger routes
+Router.post('/krogerLogin', controller.callbackHandler)
+
 module.exports = Router
