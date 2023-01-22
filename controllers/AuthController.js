@@ -66,9 +66,52 @@ const CheckSession = async (req, res) => {
   res.send(payload)
 }
 
+// Kroger Oauth2
+
+const callbackHandler = async (req, res, next) => {
+  try {
+    let params = url.parse(req.url, true).query
+
+    if (!params.code) {
+      res.sendStatus(400)
+      return
+    }
+
+    let token = await middleware.getByAuth(params.code)
+
+    res.cookie('accToken', token.access_token)
+    res.cookie('refToken', token.refresh_token)
+    // Redirect user back to browser page (index.html)
+    res.redirect('/')
+  } catch (error) {
+    console.log(`error: ${error}`)
+    res.sendStatus(500)
+  }
+}
+
+const refreshHandler = async (req, res, next) => {
+  if (!req.body.refreshToken) {
+    res.sendStatus(400)
+    return
+  }
+
+  try {
+    const token = await middleware.getByRefresh(req.body.refreshToken)
+    const result = {
+      refreshToken: token.refresh_token,
+      access_token: token.access_token
+    }
+  } catch (error) {
+    console.log(`error: ${error}`)
+    res.sendStatus(500)
+  }
+}
+
 module.exports = {
   Login,
   Register,
   UpdatePassword,
-  CheckSession
+  CheckSession,
+  callbackHandler,
+  refreshHandler
 }
